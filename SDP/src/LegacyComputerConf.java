@@ -4,7 +4,7 @@ public class LegacyComputerConf {
     private int ram;
     private StorageType storage;
     private CoolingType coolingType;
-    private int gpu;
+    private String gpu;
     private String motherboard;
     private boolean wifi_module;
     private boolean bluetooth_module;
@@ -12,7 +12,7 @@ public class LegacyComputerConf {
 
 
     public LegacyComputerConf(String cpu,int PSU_wattage,int ram,StorageType storage,
-                              CoolingType coolingType,int gpu,String motherboard,boolean wifi_module,
+                              CoolingType coolingType,String gpu,String motherboard,boolean wifi_module,
                               boolean bluetooth_module,int warranty_years){
         this.cpu=cpu;
         this.PSU_wattage=PSU_wattage;
@@ -24,6 +24,13 @@ public class LegacyComputerConf {
         this.wifi_module=wifi_module;
         this.bluetooth_module=bluetooth_module;
         this.warranty_years=warranty_years;
+    }
+
+    @Override
+    public String toString() {
+        return cpu + " " + PSU_wattage + " " + ram + " " + storage + " " + coolingType
+                + " " + gpu + " " + motherboard + " " + wifi_module
+                + " " + bluetooth_module + " " + warranty_years;
     }
 }
 
