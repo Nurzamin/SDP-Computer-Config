@@ -2,7 +2,7 @@ public class LegacyComputerConf {
     private String cpu;
     private int PSU_wattage;
     private int ram;
-    private StorageType storage;
+    private StorageConfig storage;
     private CoolingType coolingType;
     private String gpu;
     private String motherboard;
@@ -11,7 +11,7 @@ public class LegacyComputerConf {
     private int warranty_years;
 
 
-    public LegacyComputerConf(String cpu,int PSU_wattage,int ram,StorageType storage,
+    public LegacyComputerConf(String cpu,int PSU_wattage,int ram,StorageConfig storage,
                               CoolingType coolingType,String gpu,String motherboard,boolean wifi_module,
                               boolean bluetooth_module,int warranty_years){
         this.cpu=cpu;

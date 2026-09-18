@@ -16,4 +16,8 @@ public class StorageConfig {
     public int getCapacity() {
         return capacity;
     }
+    @Override
+    public String toString() {
+        return type + " " + capacity + "gb";
+    }
 }
