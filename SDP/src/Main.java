@@ -52,7 +52,7 @@ public class Main {
         } catch(InvalidConfigException e){
             System.out.println("Error: " + e.getMessage());
         }
-
+        System.out.println("\n");
         ComputerConfig test= new ComputerConfig.Builder("CPU", 400
                 ,16, new StorageConfig(StorageType.SSD, 512))
                 .build();

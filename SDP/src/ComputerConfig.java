@@ -3,6 +3,7 @@ public class ComputerConfig {
     private int PSU_wattage;
     private int ram;
     private StorageConfig storage;
+
     private CoolingType coolingType;
     private String gpu;
     private String motherboard;
@@ -25,46 +26,6 @@ public class ComputerConfig {
         this.wifi_module= builder.wifi_module;
         this.bluetooth_module= builder.bluetooth_module;
         this.warranty_years= builder.warranty_years;
-    }
-
-    public String getCpu() {
-        return cpu;
-    }
-
-    public int getPSU_wattage() {
-        return PSU_wattage;
-    }
-
-    public int getRam() {
-        return ram;
-    }
-
-    public StorageConfig getStorage() {
-        return storage;
-    }
-
-    public CoolingType getCoolingType() {
-        return coolingType;
-    }
-
-    public String getGpu() {
-        return gpu;
-    }
-
-    public String getMotherboard() {
-        return motherboard;
-    }
-
-    public int getWarranty_years() {
-        return warranty_years;
-    }
-
-    public boolean isWifi_module() {
-        return wifi_module;
-    }
-
-    public boolean isBluetooth_module() {
-        return bluetooth_module;
     }
 
     @Override
@@ -119,7 +80,7 @@ public class ComputerConfig {
         }
         private void validate() {
             if (cpu == null || cpu.isBlank())
-                throw new InvalidConfigException("CPU must be not null.");
+                throw new InvalidConfigException("CPU must not be null.");
             if (ram < 4 || ram > 256)
                 throw new InvalidConfigException("RAM must be 4-256 GB, got: " + ram);
             if (PSU_wattage < 300)
@@ -127,8 +88,7 @@ public class ComputerConfig {
 
             boolean highEndGpu = gpu != null && HIGH_END_GPUS.contains(gpu);
             if (highEndGpu && PSU_wattage < MIN_PSU)
-                throw new InvalidConfigException(
-                        "GPU '" + gpu + "' requires PSU >= " + MIN_PSU + "W, got: " + PSU_wattage);
+                throw new InvalidConfigException("GPU '" + gpu + "' requires PSU >= " + MIN_PSU + "W, got: " + PSU_wattage);
             if (highEndGpu && coolingType == CoolingType.NONE)
                 throw new InvalidConfigException("GPU " + gpu + " requires cooling.");
         }
